@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parpar Digital Security Assessment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.4;
+            color: #333;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 20px;
+        }
+        
+        .hebrew {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        h1 {
+            color: #e88f01;
+            margin: 10px 0;
+        }
+        
+        h2 {
+            color: #0062d4;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #333;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .instructions {
+            background: #f0f8ff;
+            padding: 15px;
+            border-left: 4px solid #0066cc;
+            margin-bottom: 30px;
+        }
+        
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            background: #fafafa;
+            border-radius: 5px;
+        }
+        
+        .question-number {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        
+        .options {
+            margin: 10px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .checkbox-group {
+            margin: 10px 0;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 8px;
+            transform: scale(1.2);
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .radio-group input[type="radio"] {
+            margin-right: 5px;
+            transform: scale(1.2);
+        }
+        
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        
+        .text-field {
+            margin: 10px 0;
+        }
+        
+        .next-steps {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #0066cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 1000;
+        }
+        
+        .print-button:hover {
+            background: #0052a3;
+        }
+        
+        @media print {
+            .print-button {
+                display: none;
+            }
+            
+            body {
+                max-width: none;
+                margin: 0;
+                padding: 15px;
+            }
+            
+            .question {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            
+            h2 {
+                page-break-after: avoid;
+            }
+        }
+        
+        .underline {
+            border-bottom: 1px solid #333;
+            display: inline-block;
+            min-width: 200px;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">Print/Save as PDF</button>
+    
+    <div class="header">
+        <div class="hebrew"></div>
+        <h1>Parpar: Digital Security Diagnostic Tool</h1>
+    </div>
+
+    <div class="instructions">
+        <h3>Instructions</h3>
+        <p>This assessment will help you understand your organization's current cybersecurity posture. Please answer each question as accurately as possible. Use the following response options:</p>
+        <ul>
+            <li><strong>Yes</strong> - Fully implemented/documented</li>
+            <li><strong>Partially</strong> - Some measures in place but incomplete</li>
+            <li><strong>No</strong> - Not implemented or unknown</li>
+            <li><strong>N/A</strong> - Not applicable to your organization</li>
+        </ul>
+    </div>
+
+    <h2>Section 1: Asset Inventory and Management</h2>
+    
+    <h3>Hardware Assets</h3>
+
+    <div class="question">
+        <div class="question-number">1.1</div> Do you maintain an up-to-date inventory of all hardware devices used by your organization?
+        <div class="radio-group">
+            <label><input type="radio" name="q1_1" value="yes"> Yes</label>
+            <label><input type="radio" name="q1_1" value="partially"> Partially</label>
+            <label><input type="radio" name="q1_1" value="no"> No</label>
+            <label><input type="radio" name="q1_1" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">1.2</div> Which of the following hardware do you currently use? (Check all that apply)
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="hardware" value="laptops"> Laptops</label><br>
+            <label><input type="checkbox" name="hardware" value="desktops"> Desktop computers</label><br>
+            <label><input type="checkbox" name="hardware" value="smartphones"> Smartphones/mobile devices</label><br>
+            <label><input type="checkbox" name="hardware" value="tablets"> Tablets</label><br>
+            <label><input type="checkbox" name="hardware" value="wifi"> WiFi routers/network equipment</label><br>
+            <label><input type="checkbox" name="hardware" value="servers"> Servers (physical or virtual)</label><br>
+            <label><input type="checkbox" name="hardware" value="printers"> Printers/scanners</label><br>
+            <label><input type="checkbox" name="hardware" value="iot"> IoT devices (smart speakers, cameras, etc.)</label><br>
+            <label><input type="checkbox" name="hardware" value="other"> Other: <input type="text" name="hardware_other" style="width: 300px; display: inline-block;"></label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">1.3</div> Are all your hardware devices configured with up-to-date security settings?
+        <div class="radio-group">
+            <label><input type="radio" name="q1_3" value="yes"> Yes</label>
+            <label><input type="radio" name="q1_3" value="partially"> Partially</label>
+            <label><input type="radio" name="q1_3" value="no"> No</label>
+            <label><input type="radio" name="q1_3" value="dont_know"> I Don't Know</label>
+        </div>
+    </div>
+
+    <h3>Software Assets and Accounts</h3>
+
+    <div class="question">
+        <div class="question-number">1.4</div> Do you maintain a list of all software applications and online accounts your organization uses?
+        <div class="radio-group">
+            <label><input type="radio" name="q1_4" value="yes"> Yes</label>
+            <label><input type="radio" name="q1_4" value="partially"> Partially</label>
+            <label><input type="radio" name="q1_4" value="no"> No</label>
+            <label><input type="radio" name="q1_4" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">1.5</div> Which types of software/platforms does your organization use? (Check all that apply)
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="software" value="email"> Email services (Gmail, Outlook, etc.)</label><br>
+            <label><input type="checkbox" name="software" value="storage"> Document storage/sharing (Google Drive, Dropbox, SharePoint, etc.)</label><br>
+            <label><input type="checkbox" name="software" value="cloud"> Cloud computing services (AWS, Azure, etc.)</label><br>
+            <label><input type="checkbox" name="software" value="ai"> AI tools (ChatGPT, Claude, etc.)</label><br>
+            <label><input type="checkbox" name="software" value="crm"> Customer relationship management (CRM) systems</label><br>
+            <label><input type="checkbox" name="software" value="financial"> Financial/accounting software</label><br>
+            <label><input type="checkbox" name="software" value="project"> Project management tools</label><br>
+            <label><input type="checkbox" name="software" value="other"> Other: <input type="text" name="software_other" style="width: 300px; display: inline-block;"></label>
+        </div>
+        <div class="text-field">
+            <label>Please list specific platforms here:</label><br>
+            <textarea name="specific_platforms" rows="3" placeholder="Enter specific platform names..."></textarea>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">1.6</div> Do you have a process for regularly updating all software?
+        <div class="radio-group">
+            <label><input type="radio" name="q1_6" value="yes"> Yes</label>
+            <label><input type="radio" name="q1_6" value="partially"> Partially</label>
+            <label><input type="radio" name="q1_6" value="no"> No</label>
+            <label><input type="radio" name="q1_6" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <h3>Communication Platforms</h3>
+
+    <div class="question">
+        <div class="question-number">1.7</div> Which messaging and communication platforms does your organization use? (Check all that apply)
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="communication" value="social"> Social media platforms (Facebook, Twitter, LinkedIn, etc.)</label><br>
+            <label><input type="checkbox" name="communication" value="internal"> Internal communication tools (Slack, Teams, Discord, etc.)</label><br>
+            <label><input type="checkbox" name="communication" value="video"> Video conferencing (Zoom, Teams, Google Meet, etc.)</label><br>
+            <label><input type="checkbox" name="communication" value="messaging"> Instant messaging apps (iMessage, WhatsApp, Telegram, Signal)</label><br>
+            <label><input type="checkbox" name="communication" value="other"> Other: <input type="text" name="communication_other" style="width: 300px; display: inline-block;"></label>
+        </div>
+        <div class="text-field">
+            <label>Please list specific platforms here:</label><br>
+            <textarea name="communication_platforms" rows="3" placeholder="Enter specific platform names..."></textarea>
+        </div>
+    </div>
+
+    <h3>Websites</h3>
+
+    <div class="question">
+        <div class="question-number">1.8</div> Does your organization maintain any websites or web applications?
+        <div class="radio-group">
+            <label><input type="radio" name="q1_8" value="yes"> Yes</label>
+            <label><input type="radio" name="q1_8" value="partially"> Partially</label>
+            <label><input type="radio" name="q1_8" value="no"> No</label>
+            <label><input type="radio" name="q1_8" value="na"> N/A</label>
+        </div>
+        <div class="text-field">
+            <label>Please list website hosting platforms here:</label><br>
+            <textarea name="hosting_platforms" rows="2" placeholder="Enter hosting platform names..."></textarea>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">1.9</div> If yes, do you conduct regular security assessments of your websites?
+        <div class="radio-group">
+            <label><input type="radio" name="q1_9" value="yes"> Yes</label>
+            <label><input type="radio" name="q1_9" value="partially"> Partially</label>
+            <label><input type="radio" name="q1_9" value="no"> No</label>
+            <label><input type="radio" name="q1_9" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <h2>Section 2: User Access Management</h2>
+
+    <h3>User Categories</h3>
+
+    <div class="question">
+        <div class="question-number">2.1</div> Do you maintain a current list of all individuals who have access to your systems/data?
+        <div class="radio-group">
+            <label><input type="radio" name="q2_1" value="yes"> Yes</label>
+            <label><input type="radio" name="q2_1" value="partially"> Partially</label>
+            <label><input type="radio" name="q2_1" value="no"> No</label>
+            <label><input type="radio" name="q2_1" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">2.2</div> Which categories of users have access to your systems? (Check all that apply)
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="users" value="fulltime"> Full-time staff</label><br>
+            <label><input type="checkbox" name="users" value="parttime"> Part-time staff</label><br>
+            <label><input type="checkbox" name="users" value="contractors"> Contractors/consultants</label><br>
+            <label><input type="checkbox" name="users" value="board"> Board members</label><br>
+            <label><input type="checkbox" name="users" value="advisors"> Advisors</label><br>
+            <label><input type="checkbox" name="users" value="volunteers"> Volunteers</label><br>
+            <label><input type="checkbox" name="users" value="interns"> Interns</label><br>
+            <label><input type="checkbox" name="users" value="other"> Other: <input type="text" name="users_other" style="width: 300px; display: inline-block;"></label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">2.3</div> Do you have a formal process for granting access based on job roles and responsibilities?
+        <div class="radio-group">
+            <label><input type="radio" name="q2_3" value="yes"> Yes</label>
+            <label><input type="radio" name="q2_3" value="partially"> Partially</label>
+            <label><input type="radio" name="q2_3" value="no"> No</label>
+            <label><input type="radio" name="q2_3" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">2.4</div> Do you have a process for promptly removing access when people leave the organization?
+        <div class="radio-group">
+            <label><input type="radio" name="q2_4" value="yes"> Yes</label>
+            <label><input type="radio" name="q2_4" value="partially"> Partially</label>
+            <label><input type="radio" name="q2_4" value="no"> No</label>
+            <label><input type="radio" name="q2_4" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">2.5</div> Do you regularly review and update user access permissions?
+        <div class="radio-group">
+            <label><input type="radio" name="q2_5" value="yes"> Yes</label>
+            <label><input type="radio" name="q2_5" value="partially"> Partially</label>
+            <label><input type="radio" name="q2_5" value="no"> No</label>
+            <label><input type="radio" name="q2_5" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <h2>Section 3: Data Collection and Management</h2>
+
+    <h3>Data Inventory</h3>
+
+    <div class="question">
+        <div class="question-number">3.1</div> Do you know what types of data your organization collects and stores?
+        <div class="radio-group">
+            <label><input type="radio" name="q3_1" value="yes"> Yes</label>
+            <label><input type="radio" name="q3_1" value="partially"> Partially</label>
+            <label><input type="radio" name="q3_1" value="no"> No</label>
+            <label><input type="radio" name="q3_1" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">3.2</div> What types of data does your organization collect? (Check all that apply)
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="data_types" value="client"> Client/customer personal information</label><br>
+            <label><input type="checkbox" name="data_types" value="financial"> Financial information</label><br>
+            <label><input type="checkbox" name="data_types" value="employee"> Employee records</label><br>
+            <label><input type="checkbox" name="data_types" value="donor"> Donor information</label><br>
+            <label><input type="checkbox" name="data_types" value="health"> Health information</label><br>
+            <label><input type="checkbox" name="data_types" value="legal"> Legal documents</label><br>
+            <label><input type="checkbox" name="data_types" value="research"> Research data</label><br>
+            <label><input type="checkbox" name="data_types" value="other_sensitive"> Other sensitive information: <input type="text" name="data_other" style="width: 300px; display: inline-block;"></label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">3.3</div> Through which platforms/methods do you collect data? (Check all that apply)
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="collection_methods" value="website"> Website forms</label><br>
+            <label><input type="checkbox" name="collection_methods" value="email"> Email</label><br>
+            <label><input type="checkbox" name="collection_methods" value="paper"> Paper forms (later digitized)</label><br>
+            <label><input type="checkbox" name="collection_methods" value="phone"> Phone calls</label><br>
+            <label><input type="checkbox" name="collection_methods" value="person"> In-person interactions</label><br>
+            <label><input type="checkbox" name="collection_methods" value="third_party"> Third-party platforms</label><br>
+            <label><input type="checkbox" name="collection_methods" value="other"> Other: <input type="text" name="collection_other" style="width: 300px; display: inline-block;"></label>
+        </div>
+        <div class="text-field">
+            <label>Please list specific data collection platforms here:</label><br>
+            <textarea name="collection_platforms" rows="3" placeholder="Enter specific platform names..."></textarea>
+        </div>
+    </div>
+
+    <h3>Data Sharing</h3>
+
+    <div class="question">
+        <div class="question-number">3.4</div> Do you have a documented policy about who can access different types of data?
+        <div class="radio-group">
+            <label><input type="radio" name="q3_4" value="yes"> Yes</label>
+            <label><input type="radio" name="q3_4" value="partially"> Partially</label>
+            <label><input type="radio" name="q3_4" value="no"> No</label>
+            <label><input type="radio" name="q3_4" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">3.5</div> Do you share data with external parties (partners, vendors, government agencies)?
+        <div class="radio-group">
+            <label><input type="radio" name="q3_5" value="yes"> Yes</label>
+            <label><input type="radio" name="q3_5" value="partially"> Partially</label>
+            <label><input type="radio" name="q3_5" value="no"> No</label>
+            <label><input type="radio" name="q3_5" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">3.6</div> If yes, do you have agreements in place governing how shared data must be protected?
+        <div class="radio-group">
+            <label><input type="radio" name="q3_6" value="yes"> Yes</label>
+            <label><input type="radio" name="q3_6" value="partially"> Partially</label>
+            <label><input type="radio" name="q3_6" value="no"> No</label>
+            <label><input type="radio" name="q3_6" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <h2>Section 4: Threat Assessment</h2>
+
+    <h3>Adversary Identification</h3>
+
+    <div class="question">
+        <div class="question-number">4.1</div> Have you identified who might want to target your organization?
+        <div class="radio-group">
+            <label><input type="radio" name="q4_1" value="yes"> Yes</label>
+            <label><input type="radio" name="q4_1" value="partially"> Partially</label>
+            <label><input type="radio" name="q4_1" value="no"> No</label>
+            <label><input type="radio" name="q4_1" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">4.2</div> Which potential adversaries are you most concerned about? (Check all that apply)
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="adversaries" value="cybercriminals"> Cybercriminals/hackers</label><br>
+            <label><input type="checkbox" name="adversaries" value="nation_state"> Nation-state actors</label><br>
+            <label><input type="checkbox" name="adversaries" value="hacktivists"> Activists/hacktivists</label><br>
+            <label><input type="checkbox" name="adversaries" value="competitors"> Competitors</label><br>
+            <label><input type="checkbox" name="adversaries" value="former_employees"> Disgruntled former employees</label><br>
+            <label><input type="checkbox" name="adversaries" value="unknown"> Unknown/general threats</label><br>
+            <label><input type="checkbox" name="adversaries" value="other"> Other: <input type="text" name="adversaries_other" style="width: 300px; display: inline-block;"></label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">4.3</div> How would you rate your organization's overall cybersecurity risk level?
+        <div class="radio-group">
+            <label><input type="radio" name="q4_3" value="low"> Low risk</label>
+            <label><input type="radio" name="q4_3" value="moderate"> Moderate risk</label>
+            <label><input type="radio" name="q4_3" value="high"> High risk</label>
+            <label><input type="radio" name="q4_3" value="very_high"> Very high risk</label>
+            <label><input type="radio" name="q4_3" value="unsure"> Unsure</label>
+        </div>
+    </div>
+
+    <h2>Section 5: External Relationships</h2>
+
+    <h3>Stakeholder Access</h3>
+
+    <div class="question">
+        <div class="question-number">5.1</div> Do external parties (clients, partners, advisors) have access to your systems or data?
+        <div class="radio-group">
+            <label><input type="radio" name="q5_1" value="yes"> Yes</label>
+            <label><input type="radio" name="q5_1" value="partially"> Partially</label>
+            <label><input type="radio" name="q5_1" value="no"> No</label>
+            <label><input type="radio" name="q5_1" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">5.2</div> If yes, do you have security requirements for external parties who access your systems?
+        <div class="radio-group">
+            <label><input type="radio" name="q5_2" value="yes"> Yes</label>
+            <label><input type="radio" name="q5_2" value="partially"> Partially</label>
+            <label><input type="radio" name="q5_2" value="no"> No</label>
+            <label><input type="radio" name="q5_2" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">5.3</div> Do you vet the cybersecurity practices of partners or vendors you work with?
+        <div class="radio-group">
+            <label><input type="radio" name="q5_3" value="yes"> Yes</label>
+            <label><input type="radio" name="q5_3" value="partially"> Partially</label>
+            <label><input type="radio" name="q5_3" value="no"> No</label>
+            <label><input type="radio" name="q5_3" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">5.4</div> Do you share information with partners?
+        <div class="radio-group">
+            <label><input type="radio" name="q5_4" value="yes"> Yes</label>
+            <label><input type="radio" name="q5_4" value="partially"> Partially</label>
+            <label><input type="radio" name="q5_4" value="no"> No</label>
+            <label><input type="radio" name="q5_4" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <h2>Section 6: Risk Mitigation Measures</h2>
+
+    <h3>Authentication and Access Control</h3>
+
+    <div class="question">
+        <div class="question-number">6.1</div> Do you require strong, unique passwords for all accounts?
+        <div class="radio-group">
+            <label><input type="radio" name="q6_1" value="yes"> Yes</label>
+            <label><input type="radio" name="q6_1" value="partially"> Partially</label>
+            <label><input type="radio" name="q6_1" value="no"> No</label>
+            <label><input type="radio" name="q6_1" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">6.2</div> Do you use multi-factor authentication (2FA/MFA) on critical systems?
+        <div class="radio-group">
+            <label><input type="radio" name="q6_2" value="yes"> Yes</label>
+            <label><input type="radio" name="q6_2" value="partially"> Partially</label>
+            <label><input type="radio" name="q6_2" value="no"> No</label>
+            <label><input type="radio" name="q6_2" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">6.3</div> Do you use a password manager to securely store passwords?
+        <div class="radio-group">
+            <label><input type="radio" name="q6_3" value="yes"> Yes</label>
+            <label><input type="radio" name="q6_3" value="partially"> Partially</label>
+            <label><input type="radio" name="q6_3" value="no"> No</label>
+            <label><input type="radio" name="q6_3" value="na"> N/A</label>
+        </div>
+        <div class="text-field">
+            <label>Please list password management apps here:</label><br>
+            <textarea name="password_managers" rows="2" placeholder="Enter password manager names..."></textarea>
+        </div>
+    </div>
+
+    <h3>Incident Response and Governance</h3>
+
+    <div class="question">
+        <div class="question-number">6.4</div> Do you have a written incident response plan for cybersecurity events?
+        <div class="radio-group">
+            <label><input type="radio" name="q6_4" value="yes"> Yes</label>
+            <label><input type="radio" name="q6_4" value="partially"> Partially</label>
+            <label><input type="radio" name="q6_4" value="no"> No</label>
+            <label><input type="radio" name="q6_4" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">6.5</div> Do you have a comprehensive cybersecurity policy?
+        <div class="radio-group">
+            <label><input type="radio" name="q6_5" value="yes"> Yes</label>
+            <label><input type="radio" name="q6_5" value="partially"> Partially</label>
+            <label><input type="radio" name="q6_5" value="no"> No</label>
+            <label><input type="radio" name="q6_5" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">6.6</div> Do you have data governance policies covering data collection and sharing?
+        <div class="radio-group">
+            <label><input type="radio" name="q6_6" value="yes"> Yes</label>
+            <label><input type="radio" name="q6_6" value="partially"> Partially</label>
+            <label><input type="radio" name="q6_6" value="no"> No</label>
+            <label><input type="radio" name="q6_6" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <h3>Data Protection</h3>
+
+    <div class="question">
+        <div class="question-number">6.7</div> Do you encrypt sensitive data both in storage and transmission?
+        <div class="radio-group">
+            <label><input type="radio" name="q6_7" value="yes"> Yes</label>
+            <label><input type="radio" name="q6_7" value="partially"> Partially</label>
+            <label><input type="radio" name="q6_7" value="no"> No</label>
+            <label><input type="radio" name="q6_7" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">6.8</div> Do you use secure communication platforms for sensitive discussions?
+        <div class="radio-group">
+            <label><input type="radio" name="q6_8" value="yes"> Yes</label>
+            <label><input type="radio" name="q6_8" value="partially"> Partially</label>
+            <label><input type="radio" name="q6_8" value="no"> No</label>
+            <label><input type="radio" name="q6_8" value="na"> N/A</label>
+        </div>
+        <div class="text-field">
+            <label>Please list communication platforms here:</label><br>
+            <textarea name="secure_communications" rows="2" placeholder="Enter secure communication platform names..."></textarea>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">6.9</div> Do you regularly back up critical data?
+        <div class="radio-group">
+            <label><input type="radio" name="q6_9" value="yes"> Yes</label>
+            <label><input type="radio" name="q6_9" value="partially"> Partially</label>
+            <label><input type="radio" name="q6_9" value="no"> No</label>
+            <label><input type="radio" name="q6_9" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">6.10</div> Are your backups stored securely and tested for restoration?
+        <div class="radio-group">
+            <label><input type="radio" name="q6_10" value="yes"> Yes</label>
+            <label><input type="radio" name="q6_10" value="partially"> Partially</label>
+            <label><input type="radio" name="q6_10" value="no"> No</label>
+            <label><input type="radio" name="q6_10" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <h3>Email and Network Security</h3>
+
+    <div class="question">
+        <div class="question-number">6.11</div> Do you have email security measures in place (spam filtering, phishing protection)?
+        <div class="radio-group">
+            <label><input type="radio" name="q6_11" value="yes"> Yes</label>
+            <label><input type="radio" name="q6_11" value="partially"> Partially</label>
+            <label><input type="radio" name="q6_11" value="no"> No</label>
+            <label><input type="radio" name="q6_11" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">6.12</div> Do you have policies governing public communications and social media use?
+        <div class="radio-group">
+            <label><input type="radio" name="q6_12" value="yes"> Yes</label>
+            <label><input type="radio" name="q6_12" value="partially"> Partially</label>
+            <label><input type="radio" name="q6_12" value="no"> No</label>
+            <label><input type="radio" name="q6_12" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">6.13</div> Do you use firewalls to protect your network?
+        <div class="radio-group">
+            <label><input type="radio" name="q6_13" value="yes"> Yes</label>
+            <label><input type="radio" name="q6_13" value="partially"> Partially</label>
+            <label><input type="radio" name="q6_13" value="no"> No</label>
+            <label><input type="radio" name="q6_13" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">6.14</div> Do remote workers use VPNs to access organizational resources?
+        <div class="radio-group">
+            <label><input type="radio" name="q6_14" value="yes"> Yes</label>
+            <label><input type="radio" name="q6_14" value="partially"> Partially</label>
+            <label><input type="radio" name="q6_14" value="no"> No</label>
+            <label><input type="radio" name="q6_14" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <h3>Endpoint Security</h3>
+
+    <div class="question">
+        <div class="question-number">6.15</div> Are all computers and mobile devices protected with updated antivirus/security software?
+        <div class="radio-group">
+            <label><input type="radio" name="q6_15" value="yes"> Yes</label>
+            <label><input type="radio" name="q6_15" value="partially"> Partially</label>
+            <label><input type="radio" name="q6_15" value="no"> No</label>
+            <label><input type="radio" name="q6_15" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">6.16</div> Do you have policies for securing mobile devices used for work?
+        <div class="radio-group">
+            <label><input type="radio" name="q6_16" value="yes"> Yes</label>
+            <label><input type="radio" name="q6_16" value="partially"> Partially</label>
+            <label><input type="radio" name="q6_16" value="no"> No</label>
+            <label><input type="radio" name="q6_16" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <h2>Section 7: Remote Work Security</h2>
+
+    <h3>Work Environment</h3>
+
+    <div class="question">
+        <div class="question-number">7.1</div> Do your employees work remotely or in hybrid arrangements?
+        <div class="radio-group">
+            <label><input type="radio" name="q7_1" value="yes"> Yes</label>
+            <label><input type="radio" name="q7_1" value="partially"> Partially</label>
+            <label><input type="radio" name="q7_1" value="no"> No</label>
+            <label><input type="radio" name="q7_1" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">7.2</div> Do you provide guidance on secure home WiFi setup for remote workers?
+        <div class="radio-group">
+            <label><input type="radio" name="q7_2" value="yes"> Yes</label>
+            <label><input type="radio" name="q7_2" value="partially"> Partially</label>
+            <label><input type="radio" name="q7_2" value="no"> No</label>
+            <label><input type="radio" name="q7_2" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">7.3</div> Do remote workers use VPNs when accessing work resources?
+        <div class="radio-group">
+            <label><input type="radio" name="q7_3" value="yes"> Yes</label>
+            <label><input type="radio" name="q7_3" value="partially"> Partially</label>
+            <label><input type="radio" name="q7_3" value="no"> No</label>
+            <label><input type="radio" name="q7_3" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <h3>Physical Security</h3>
+
+    <div class="question">
+        <div class="question-number">7.4</div> Do you have policies about physical security for remote work (screen privacy, device locking, etc.)?
+        <div class="radio-group">
+            <label><input type="radio" name="q7_4" value="yes"> Yes</label>
+            <label><input type="radio" name="q7_4" value="partially"> Partially</label>
+            <label><input type="radio" name="q7_4" value="no"> No</label>
+            <label><input type="radio" name="q7_4" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">7.5</div> Do you use digital access controls (keycards, mobile apps) for physical office security?
+        <div class="radio-group">
+            <label><input type="radio" name="q7_5" value="yes"> Yes</label>
+            <label><input type="radio" name="q7_5" value="partially"> Partially</label>
+            <label><input type="radio" name="q7_5" value="no"> No</label>
+            <label><input type="radio" name="q7_5" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <h2>Section 8: Training and Awareness</h2>
+
+    <div class="question">
+        <div class="question-number">8.1</div> Do you provide cybersecurity training for employees and volunteers?
+        <div class="radio-group">
+            <label><input type="radio" name="q8_1" value="yes"> Yes</label>
+            <label><input type="radio" name="q8_1" value="partially"> Partially</label>
+            <label><input type="radio" name="q8_1" value="no"> No</label>
+            <label><input type="radio" name="q8_1" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">8.2</div> Do you conduct phishing simulations or security awareness exercises?
+        <div class="radio-group">
+            <label><input type="radio" name="q8_2" value="yes"> Yes</label>
+            <label><input type="radio" name="q8_2" value="partially"> Partially</label>
+            <label><input type="radio" name="q8_2" value="no"> No</label>
+            <label><input type="radio" name="q8_2" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-number">8.3</div> Do you have a process for reporting security incidents or suspicious activity?
+        <div class="radio-group">
+            <label><input type="radio" name="q8_3" value="yes"> Yes</label>
+            <label><input type="radio" name="q8_3" value="partially"> Partially</label>
+            <label><input type="radio" name="q8_3" value="no"> No</label>
+            <label><input type="radio" name="q8_3" value="na"> N/A</label>
+        </div>
+    </div>
+
+    <h2>Additional Information</h2>
+
+    <div class="question">
+        <label><strong>Organization Size:</strong></label>
+        <input type="text" name="org_size" class="underline" placeholder="Enter organization size">
+    </div>
+
+    <div class="question">
+        <label><strong>Industry/Sector:</strong></label>
+        <input type="text" name="industry" class="underline" placeholder="Enter industry/sector">
+    </div>
+
+    <div class="question">
+        <label><strong>Primary Technology Contact:</strong></label>
+        <input type="text" name="tech_contact" class="underline" placeholder="Enter primary technology contact">
+    </div>
+
+    <div class="question">
+        <label><strong>Assessment Completed By:</strong></label>
+        <input type="text" name="completed_by" class="underline" placeholder="Enter name of person completing assessment">
+    </div>
+
+    <div class="question">
+        <label><strong>Date:</strong></label>
+        <input type="date" name="completion_date" class="underline">
+    </div>
+
+    <div class="question">
+        <label><strong>Additional Comments or Concerns:</strong></label><br>
+        <textarea name="additional_comments" rows="4" placeholder="Enter any additional comments or concerns..."></textarea>
+    </div>
+
+    <div class="next-steps">
+        <h2>Next Steps</h2>
+        <p>Based on your responses, you may want to:</p>
+        <ol>
+            <li>Prioritize areas where you answered "No" or "Partially"</li>
+            <li>Develop implementation plans for missing security measures</li>
+            <li>Consider consulting with cybersecurity professionals</li>
+            <li>Review and update your assessment annually</li>
+        </ol>
+    </div>
+
+    <script>
+        // Auto-save form data to localStorage to prevent data loss
+        function saveFormData() {
+            const formData = new FormData(document.querySelector('form') || document.body);
+            const data = {};
+            
+            // Save all form inputs
+            document.querySelectorAll('input[type="radio"]:checked, input[type="checkbox"]:checked, input[type="text"], input[type="date"], textarea').forEach(input => {
+                if (input.type === 'checkbox') {
+                    if (!data[input.name]) data[input.name] = [];
+                    data[input.name].push(input.value);
+                } else {
+                    data[input.name] = input.value;
+                }
+            });
+            
+            localStorage.setItem('parpar_assessment', JSON.stringify(data));
+        }
+        
+        // Load saved form data
+        function loadFormData() {
+            const saved = localStorage.getItem('parpar_assessment');
+            if (saved) {
+                const data = JSON.parse(saved);
+                
+                Object.keys(data).forEach(name => {
+                    const inputs = document.querySelectorAll(`[name="${name}"]`);
+                    inputs.forEach(input => {
+                        if (input.type === 'radio') {
+                            if (input.value === data[name]) {
+                                input.checked = true;
+                            }
+                        } else if (input.type === 'checkbox') {
+                            if (Array.isArray(data[name]) && data[name].includes(input.value)) {
+                                input.checked = true;
+                            }
+                        } else {
+                            input.value = data[name] || '';
+                        }
+                    });
+                });
+            }
+        }
+        
+        // Add event listeners to save data on change
+        document.addEventListener('DOMContentLoaded', function() {
+            loadFormData();
+            
+            document.querySelectorAll('input, textarea').forEach(input => {
+                input.addEventListener('change', saveFormData);
+                input.addEventListener('input', saveFormData);
+            });
+        });
+        
+        // Clear saved data when printing/saving
+        window.addEventListener('beforeprint', function() {
+            localStorage.removeItem('parpar_assessment');
+        });
+    </script>
+
+</body>
+</html>

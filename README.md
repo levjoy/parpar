@@ -1,3 +1,3 @@
-# Parpar, a digital security diagnostic tool
+# K'lal Tech digital security diagnostic tool
 
-Created and used by K'lal 
+Created and used by K'lal Tech
